@@ -21,6 +21,7 @@ const MOCK_CHIPS = [
 export function ChipsList() {
     const [visibleChips, setVisibleChips] = useState(MOCK_CHIPS.length);
     const [showPopup, setShowPopup] = useState(false);
+    const [selectedChips, setSelectedChips] = useState<number[]>([]); // добавляем состояние
 
     const containerRef = useRef<HTMLDivElement>(null);
     const chipsRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -63,6 +64,14 @@ export function ChipsList() {
             window.removeEventListener('resize', calculateVisibleChips);
     }, []);
 
+    const handleChipClick = (id: number) => {
+        setSelectedChips((prev) =>
+            prev.includes(id)
+                ? prev.filter((chipId) => chipId !== id)
+                : [...prev, id]
+        );
+    };
+
     const handleMoreButtonClick = () => {
         setShowPopup((prev) => !prev);
     };
@@ -79,6 +88,8 @@ export function ChipsList() {
                             chipsRef.current[index] = el;
                         }}
                         label={chip.label}
+                        selected={selectedChips.includes(chip.id)}
+                        onClick={() => handleChipClick(chip.id)}
                     />
                 ))}
 
@@ -99,8 +110,9 @@ export function ChipsList() {
                                 <Chip
                                     key={chip.id}
                                     label={chip.label}
+                                    selected={selectedChips.includes(chip.id)}
                                     onClick={() => {
-                                        setShowPopup(false);
+                                        handleChipClick(chip.id);
                                     }}
                                 />
                             ))}
