@@ -7,6 +7,9 @@
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.2s;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
 
     &:hover {
         background-color: #d0d0d0;
@@ -16,8 +19,8 @@
 .selected {
     background-color: #40a42e;
     color: white;
-}
 
-.selected:hover {
-    background-color: #1f4518;
+    &:hover {
+        background-color: #1f4518;
+    }
 }

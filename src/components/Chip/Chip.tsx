@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import s from './chip.module.scss';
 
 type ChipProps = {
@@ -6,13 +7,16 @@ type ChipProps = {
     onClick?: () => void;
 };
 
-export function Chip({ label, selected, onClick }: ChipProps) {
-    return (
-        <button
-            className={`${s.chip} ${selected ? s.selected : ''}`}
-            onClick={onClick}
-        >
-            {label}
-        </button>
-    );
-}
+export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
+    ({ label, selected, onClick }, ref) => {
+        return (
+            <button
+                ref={ref}
+                className={`${s.chip} ${selected ? s.selected : ''}`}
+                onClick={onClick}
+            >
+                {label}
+            </button>
+        );
+    }
+);
