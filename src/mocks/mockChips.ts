@@ -1,0 +1,15 @@
+export const MOCK_CHIPS = [
+    { label: 'Чипс 1', id: 1 },
+    { label: 'Чипс 2', id: 2 },
+    { label: 'Чипс 3', id: 3 },
+    { label: 'Чипс 4', id: 4 },
+    { label: 'Чипс 5', id: 5 },
+    { label: 'Чипс 6', id: 6 },
+    { label: 'Чипс 7', id: 7 },
+    { label: 'Чипс 8', id: 8 },
+    { label: 'Чипс 9', id: 9 },
+    { label: 'Чипс 10', id: 10 },
+    { label: 'Чипс 11', id: 11 },
+    { label: 'Чипс 12', id: 12 },
+    { label: 'Чипс 13', id: 13 },
+];
