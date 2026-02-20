@@ -22,7 +22,7 @@
 
 1. Клонировать репозиторий
 ```
-git clone https://github.com/your-username/chips-list.git
+git clone https://github.com/alinidi/chips-list.git
 cd chips-list
 ```
 2. Установить зависимости
